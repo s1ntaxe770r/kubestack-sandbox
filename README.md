@@ -139,3 +139,4 @@ In case of the automation being unavailable, upgrades requiring manual steps or 
 [4]: https://www.kubestack.com/framework/documentation
 [5]: https://www.kubestack.com/framework/documentation/gitops-process
 [6]: https://www.kubestack.com/framework/documentation/tutorial-develop-locally#provision-local-clusters
+# kubestack-sandbox
