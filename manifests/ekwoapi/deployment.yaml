@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+        name: ekow-api
+        labels:
+           app: ekow-api
+spec:
+   replicas: 2
+   selector:
+      matchLabels:
+         app: ekow-api
+   template:
+      metadata:
+         labels:
+            app: ekow-api
+      spec:
+         containers:
+            - name: ekow-api
+              image: e770r/ekow
+              ports:
+                 - containerPort: 8080
+              env:
+                 - name: "REDIS_HOST"
+                   value: "redis"
+
+                 - name: "REDIS_PORT"
+                   value: "6379"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  redis
+  labels:
+    app:  redis
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app:  redis
+  template:
+    metadata:
+      labels:
+        app:  redis
+    spec:
+      containers:
+      - name:  redis
+        image: redis:alpine
+        ports:
+        - containerPort: 6379
